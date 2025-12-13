@@ -20,7 +20,7 @@ export default function App() {
           particleColors={["#40CFC3", "#40CFC3"]}
           particleCount={500}
           particleSpread={10}
-          speed={0.1}
+          speed={0.2}
           particleBaseSize={100}
           moveParticlesOnHover={true}
           alphaParticles={false}

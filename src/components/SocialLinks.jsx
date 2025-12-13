@@ -22,13 +22,13 @@ const LinkedInIcon = () => (
 const defaultLinks = [
   {
     platform: "instagram",
-    url: import.meta.env.VITE_INSTAGRAM_URL || "https://instagram.com/shuffle",
+    url: import.meta.env.VITE_INSTAGRAM_URL || "https://www.instagram.com/shufflerentals?igsh=aDZvNzJmOWFhbjhv",
     ariaLabel: "Follow Shuffle on Instagram",
     icon: InstagramIcon,
   },
   {
     platform: "x",
-    url: import.meta.env.VITE_X_URL || "https://x.com/shuffle",
+    url: import.meta.env.VITE_X_URL || "https://x.com/shufflerentals",
     ariaLabel: "Follow Shuffle on X",
     icon: XIcon,
   },
@@ -36,7 +36,7 @@ const defaultLinks = [
     platform: "linkedin",
     url:
       import.meta.env.VITE_LINKEDIN_URL ||
-      "https://linkedin.com/company/shuffle",
+      "https://www.linkedin.com/company/shufflerentals/",
     ariaLabel: "Follow Shuffle on LinkedIn",
     icon: LinkedInIcon,
   },
