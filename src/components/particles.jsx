@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Renderer, Camera, Geometry, Program, Mesh } from 'ogl';
 
@@ -126,15 +127,20 @@ const Particles = ({
     window.addEventListener('resize', resize, false);
     resize();
 
+    // Track mouse globally, smooth with lerp in RAF to avoid flicker
+    const targetMouse = { x: 0, y: 0 };
     const handleMouseMove = e => {
-      const rect = container.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
-      mouseRef.current = { x, y };
+      // Use viewport-relative coords so hovering UI elements doesn't disrupt tracking
+      const vw = gl.canvas.clientWidth;
+      const vh = gl.canvas.clientHeight;
+      const x = (e.clientX / vw) * 2 - 1;
+      const y = -((e.clientY / vh) * 2 - 1);
+      targetMouse.x = x;
+      targetMouse.y = y;
     };
 
     if (moveParticlesOnHover) {
-      container.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
     }
 
     const count = particleCount;
@@ -183,6 +189,8 @@ const Particles = ({
     let animationFrameId;
     let lastTime = performance.now();
     let elapsed = 0;
+    // Start with current stored mouse for continuity
+    mouseRef.current = { x: 0, y: 0 };
 
     const update = t => {
       animationFrameId = requestAnimationFrame(update);
@@ -193,6 +201,11 @@ const Particles = ({
       program.uniforms.uTime.value = elapsed * 0.001;
 
       if (moveParticlesOnHover) {
+        // Smoothly interpolate towards target to prevent jitter/flicker
+        const lerp = (a, b, t) => a + (b - a) * t;
+        const damping = 0.15; // smoothing factor
+        mouseRef.current.x = lerp(mouseRef.current.x, targetMouse.x, damping);
+        mouseRef.current.y = lerp(mouseRef.current.y, targetMouse.y, damping);
         particles.position.x = -mouseRef.current.x * particleHoverFactor;
         particles.position.y = -mouseRef.current.y * particleHoverFactor;
       } else {
@@ -214,7 +227,7 @@ const Particles = ({
     return () => {
       window.removeEventListener('resize', resize);
       if (moveParticlesOnHover) {
-        container.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mousemove', handleMouseMove);
       }
       cancelAnimationFrame(animationFrameId);
       if (container.contains(gl.canvas)) {

@@ -24,7 +24,7 @@ export default function App() {
           particleBaseSize={100}
           moveParticlesOnHover={true}
           alphaParticles={false}
-          particleHoverFactor={0.5}
+          particleHoverFactor={0.1}
           disableRotation={false}
         />
       </div>
