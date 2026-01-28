@@ -33,7 +33,24 @@ const ContactSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
             >
-                <h2 className="contact-title">Contact Us</h2>
+                <div className="contact-header">
+                    <motion.h2
+                        className="contact-title"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        Get in Touch
+                    </motion.h2>
+                    <motion.p
+                        className="contact-subtitle"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                        We'd love to hear from you.
+                    </motion.p>
+                </div>
                 <form className="contact-form" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
