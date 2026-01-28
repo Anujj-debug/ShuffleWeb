@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Linkedin, Instagram } from 'lucide-react';
 import './App.css';
 import ParticlesBackground from './ParticlesBackground';
+import ContactSection from './ContactSection';
 
 const XIcon = ({ size = 22 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -38,54 +39,57 @@ function App() {
       }} />
       <ParticlesBackground />
 
-      <header>
-        <Logo />
-      </header>
+      <div className="hero-section">
+        <header>
+          <Logo />
+        </header>
 
-      <main>
-        <div className="overflow-hidden">
-          <motion.h1
-            className="hero-text"
-            initial={{ y: 150 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            LAUNCHING
-          </motion.h1>
-        </div>
-        <div className="overflow-hidden">
-          <motion.h1
-            className="hero-text"
-            /* Updated stroke color for light background visibility */
-            style={{ color: 'transparent', WebkitTextStroke: '2px #19211c', opacity: 0.3 }}
-            initial={{ y: 150 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            SOON
-          </motion.h1>
-        </div>
+        <main>
+          <div className="overflow-hidden">
+            <motion.h1
+              className="hero-text"
+              initial={{ y: 150 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              LAUNCHING
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden">
+            <motion.h1
+              className="hero-text"
+              /* Updated stroke color for light background visibility */
+              style={{ color: 'transparent', WebkitTextStroke: '2px #19211c', opacity: 0.3 }}
+              initial={{ y: 150 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              SOON
+            </motion.h1>
+          </div>
+        </main>
 
+        <footer>
+          <SocialIcon
+            href="https://x.com/shufflerentals"
+            icon={<XIcon size={20} />}
+            delay={1.2}
+          />
+          <SocialIcon
+            href="https://www.linkedin.com/company/shufflerentals/"
+            icon={<Linkedin size={22} />}
+            delay={1.3}
+          />
+          <SocialIcon
+            href="https://www.instagram.com/shufflerentals?igsh=aDZvNzJmOWFhbjhv"
+            icon={<Instagram size={22} />}
+            delay={1.4}
+          />
+        </footer>
+      </div>
 
-      </main>
+      <ContactSection />
 
-      <footer>
-        <SocialIcon
-          href="https://x.com/shufflerentals"
-          icon={<XIcon size={20} />}
-          delay={1.2}
-        />
-        <SocialIcon
-          href="https://www.linkedin.com/company/shufflerentals/"
-          icon={<Linkedin size={22} />}
-          delay={1.3}
-        />
-        <SocialIcon
-          href="https://www.instagram.com/shufflerentals?igsh=aDZvNzJmOWFhbjhv"
-          icon={<Instagram size={22} />}
-          delay={1.4}
-        />
-      </footer>
     </div>
   );
 }
