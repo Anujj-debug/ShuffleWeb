@@ -18,8 +18,7 @@ const Logo = () => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
-    <img src="/logo.png" alt="Shuffle Logo" className="logo-img" />
-    <span className="logo-text">Shuffle</span>
+    <img src="/Website Logo.png" alt="Shuffle Logo" className="logo-img" />
   </motion.div>
 );
 

@@ -2,9 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* removing flex to allow normal document flow and fixed footer */
   background-color: transparent;
   transition: background-color 0.5s ease;
 }
@@ -59,8 +57,8 @@ header {
 }
 
 .logo-img {
-  width: 36px;
-  height: 36px;
+  height: 40px;
+  width: auto;
   object-fit: contain;
 }
 
@@ -79,6 +77,7 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex: 1;
 }
 
 .hero-text {
@@ -95,8 +94,11 @@ main {
 
 
 footer {
-  z-index: 10;
-  margin-bottom: 2vh;
+  position: fixed;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
   display: flex;
   gap: 1rem;
   /* Compact gap */
