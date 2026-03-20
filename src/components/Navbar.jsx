@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
+      className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--open' : ''}`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
