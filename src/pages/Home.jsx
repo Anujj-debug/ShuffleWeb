@@ -86,7 +86,7 @@ const Home = () => {
           <span className="section-label">The Concept</span>
           <h2 className="section-heading">What is Shuffle Rentals?</h2>
           <p className="section-para">
-            Shuffle Rentals is a peer-to-peer rental marketplace built for everyday life. Instead of buying items you only need once or twice, you can borrow them from someone in your neighbourhood - and if you have items sitting unused at home, you can rent them out and earn from them.
+            Shuffle Rentals is a rental marketplace built for everyday life. Instead of buying items you only need once or twice, you can borrow them from someone in your neighbourhood - and if you have items sitting unused at home, you can rent them out and earn from them.
           </p>
           <p className="section-para">
             We focus on being hyperlocal, affordable, and simple. No complex logistics. No expensive subscriptions. Just people helping people in the same community.
