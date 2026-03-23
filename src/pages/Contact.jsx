@@ -24,7 +24,7 @@ const Contact = () => {
     const { name, email, subject, message } = formData;
     const mailtoBody = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
     const mailtoSubject = encodeURIComponent(subject || 'Message from Shuffle Rentals Website');
-    window.location.href = `mailto:contact@shufflerentals.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    window.location.href = `mailto:rentalsshuffle@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
     setSubmitted(true);
   };
 
